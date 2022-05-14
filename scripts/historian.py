@@ -1433,7 +1433,7 @@ def main():
 
   if not getopt_generate_chart_only:
     print """
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
       <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['timeline']}]}"></script>
     """
 

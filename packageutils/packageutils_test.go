@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	usagepb "github.com/google/battery-historian/pb/usagestats_proto"
+	usagepb "github.com/mndream/battery-historian-custom/pb/usagestats_proto"
 )
 
 const (
@@ -287,7 +287,7 @@ func TestGuessPackageWithInvalidServices(t *testing.T) {
 
 		// Test UIDs that are not in the package list
 		service{service: "To infinity, and beyond!", uid: "123456789"}: "",
-		service{uid: "27"}:                                             "",
+		service{uid: "27"}: "",
 	}
 
 	for service, pkgName := range serviceToPackageNames {

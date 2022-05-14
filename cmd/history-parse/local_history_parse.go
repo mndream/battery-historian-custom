@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/google/battery-historian/bugreportutils"
-	"github.com/google/battery-historian/packageutils"
-	"github.com/google/battery-historian/parseutils"
+	"github.com/mndream/battery-historian-custom/bugreportutils"
+	"github.com/mndream/battery-historian-custom/packageutils"
+	"github.com/mndream/battery-historian-custom/parseutils"
 )
 
 var (

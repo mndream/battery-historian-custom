@@ -34,24 +34,24 @@ import (
 
 	"github.com/golang/protobuf/proto"
 
-	"github.com/google/battery-historian/activity"
-	"github.com/google/battery-historian/broadcasts"
-	"github.com/google/battery-historian/bugreportutils"
-	"github.com/google/battery-historian/checkindelta"
-	"github.com/google/battery-historian/checkinparse"
-	"github.com/google/battery-historian/checkinutil"
-	"github.com/google/battery-historian/dmesg"
-	"github.com/google/battery-historian/historianutils"
-	"github.com/google/battery-historian/kernel"
-	"github.com/google/battery-historian/packageutils"
-	"github.com/google/battery-historian/parseutils"
-	"github.com/google/battery-historian/powermonitor"
-	"github.com/google/battery-historian/presenter"
-	"github.com/google/battery-historian/wearable"
+	"github.com/mndream/battery-historian-custom/activity"
+	"github.com/mndream/battery-historian-custom/broadcasts"
+	"github.com/mndream/battery-historian-custom/bugreportutils"
+	"github.com/mndream/battery-historian-custom/checkindelta"
+	"github.com/mndream/battery-historian-custom/checkinparse"
+	"github.com/mndream/battery-historian-custom/checkinutil"
+	"github.com/mndream/battery-historian-custom/dmesg"
+	"github.com/mndream/battery-historian-custom/historianutils"
+	"github.com/mndream/battery-historian-custom/kernel"
+	"github.com/mndream/battery-historian-custom/packageutils"
+	"github.com/mndream/battery-historian-custom/parseutils"
+	"github.com/mndream/battery-historian-custom/powermonitor"
+	"github.com/mndream/battery-historian-custom/presenter"
+	"github.com/mndream/battery-historian-custom/wearable"
 
-	bspb "github.com/google/battery-historian/pb/batterystats_proto"
-	sessionpb "github.com/google/battery-historian/pb/session_proto"
-	usagepb "github.com/google/battery-historian/pb/usagestats_proto"
+	bspb "github.com/mndream/battery-historian-custom/pb/batterystats_proto"
+	sessionpb "github.com/mndream/battery-historian-custom/pb/session_proto"
+	usagepb "github.com/mndream/battery-historian-custom/pb/usagestats_proto"
 )
 
 const (
@@ -496,17 +496,20 @@ func HTTPAnalyzeHandler(w http.ResponseWriter, r *http.Request) {
 		var contents []byte
 		valid := false
 		fname := ""
+		log.Printf("contentLoop: start")
 	contentLoop:
 		for n, f := range files {
+			log.Printf("contentLoop: FileName: %s , FormName: %s", part.FileName(), part.FormName())
 			switch part.FormName() {
 			case "bugreport", "bugreport2":
-				if bugreportutils.IsBugReport(f) {
-					// TODO: handle the case of additional kernel and power monitor files within a single uploaded file
-					valid = true
-					contents = f
-					fname = n
-					break contentLoop
-				}
+				log.Printf("contentLoop: FileName: %s , FormName: %s", part.FileName(), part.FormName())
+				//if bugreportutils.IsBugReport(f) {
+				// TODO: handle the case of additional kernel and power monitor files within a single uploaded file
+				valid = true
+				contents = f
+				fname = n
+				break contentLoop
+				//}
 			case "kernel":
 				if kernel.IsTrace(f) {
 					valid = true
@@ -530,6 +533,7 @@ func HTTPAnalyzeHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if !valid {
+			log.Printf("%s does not contain a valid %s file", part.FileName(), part.FormName())
 			http.Error(w, fmt.Sprintf("%s does not contain a valid %s file", part.FileName(), part.FormName()), http.StatusInternalServerError)
 			return
 		}

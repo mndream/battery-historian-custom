@@ -23,8 +23,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/google/battery-historian/csv"
-	"github.com/google/battery-historian/historianutils"
+	"github.com/mndream/battery-historian-custom/csv"
+	"github.com/mndream/battery-historian-custom/historianutils"
 )
 
 const (

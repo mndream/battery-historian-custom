@@ -18,8 +18,8 @@
 
 # To regenerate the compiled Go files if the protos are modified.
 cd $GOPATH/src
-protoc --go_out=. github.com/google/battery-historian/pb/batterystats_proto/*.proto
-protoc --go_out=. github.com/google/battery-historian/pb/build_proto/*.proto
-protoc --go_out=. github.com/google/battery-historian/pb/metrics_proto/*.proto
-protoc --go_out=. github.com/google/battery-historian/pb/session_proto/*.proto
-protoc --go_out=. github.com/google/battery-historian/pb/usagestats_proto/*.proto
+protoc --go_out=. github.com/mndream/battery-historian-custom/pb/batterystats_proto/*.proto
+protoc --go_out=. github.com/mndream/battery-historian-custom/pb/build_proto/*.proto
+protoc --go_out=. github.com/mndream/battery-historian-custom/pb/metrics_proto/*.proto
+protoc --go_out=. github.com/mndream/battery-historian-custom/pb/session_proto/*.proto
+protoc --go_out=. github.com/mndream/battery-historian-custom/pb/usagestats_proto/*.proto

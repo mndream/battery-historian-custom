@@ -27,8 +27,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/google/battery-historian/bugreportutils"
-	"github.com/google/battery-historian/historianutils"
+	"github.com/mndream/battery-historian-custom/bugreportutils"
+	"github.com/mndream/battery-historian-custom/historianutils"
 )
 
 const (

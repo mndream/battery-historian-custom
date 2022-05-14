@@ -22,9 +22,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/google/battery-historian/bugreportutils"
-	"github.com/google/battery-historian/csv"
-	"github.com/google/battery-historian/historianutils"
+	"github.com/mndream/battery-historian-custom/bugreportutils"
+	"github.com/mndream/battery-historian-custom/csv"
+	"github.com/mndream/battery-historian-custom/historianutils"
 )
 
 var (
@@ -121,10 +121,10 @@ func Parse(f string) (string, []error) {
 	}
 	buf := new(bytes.Buffer)
 	p := parser{
-		lines:    strings.Split(f, "\n"),
-		buf:      buf,
-		csvState: csv.NewState(buf, true),
-		loc:      loc,
+		lines:                    strings.Split(f, "\n"),
+		buf:                      buf,
+		csvState:                 csv.NewState(buf, true),
+		loc:                      loc,
 		historicalBroadcastsUIDs: make(map[string]map[string]string),
 	}
 
