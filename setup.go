@@ -32,7 +32,7 @@ import (
 )
 
 const (
-	closureCompilerVersion = "20170409"
+	closureCompilerVersion = "20200719"
 	closureCompilerZip     = "compiler-" + closureCompilerVersion + ".zip"
 	closureCompilerJar     = "closure-compiler-v" + closureCompilerVersion + ".jar"
 	closureCompilerURL     = "http://dl.google.com/closure-compiler/" + closureCompilerZip
