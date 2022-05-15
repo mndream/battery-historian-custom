@@ -4,6 +4,13 @@ Battery Historian is a tool to inspect battery related information and events on
 
 ## Getting Started
 
+#### CMD run this:
+
+```
+python .\scripts\historian.py .\scripts\batterystats.txt > .\scripts\batterystats.html
+start  .\scripts\batterystats.html
+```
+
 #### Using Docker
 
 Install [Docker](<https://docs.docker.com/engine/installation/>).
